@@ -1,11 +1,169 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Motor</title>
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harley Motorcycles | TechMOTO</title>
+    <style>
+        :root {
+            --primary-red: #e30613;
+            --primary-blue: #003366;
+            --dark-bg: #222327;
+            --light-text: #ffffff;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+            --bg-color: #222327;
+            --text-color: #fff;
+            --main-color: #ff0000;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-red);
+        }
+        
+        .back-btn {
+            background: var(--main-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .back-btn i {
+            margin-right: 8px;
+        }
+        
+        .motorcycle-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: : 40px;
+            margin-top: 40px;
+        }
+        
+        .bike-image {
+            position: relative;
+        }
+        
+        .bike-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .image-label {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        
+        .specs {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .specs h2 {
+            color: var(--main-color);
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        
+        .spec-item {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+        }
+        
+        .spec-name {
+            color: #aaa;
+        }
+        
+        .spec-value {
+            font-weight: 600;
+        }
+        
+        .price {
+            font-size: 28px;
+            margin: 30px 0;
+            color: var(--primary-red);
+        }
+        
+        .btn-group {
+            display: flex;
+            grid-gap: 15px;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: var(--primary-red);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #c00511;
+        }
+        
+        .btn-outline {
+            background-color: var(--primary-blue);
+            color: #ffffff;
+        }
+        
+        .btn-outline:hover {
+            background: rgba(0,51,102,0.6);
+        }
+        
+        @media (max-width: 768px) {
+            .motorcycle-showcase {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" 
     href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 
@@ -16,174 +174,340 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"/>
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
     <link
       rel="stylesheet"
       type="text/css"
-      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"/>
-
-      <style type="text/css">
-      	*{
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    text-decoration: none;
-    list-style: none;
-}
-:root{
-    --bg-color: #222327;
-    --text-color: #fff;
-    --main-color: #ff0000;
-}
-body{
-    min-height: 100vh;
-    background: var(--bg-color);
-    color: var(--text-color);
-}
-header{
-    position: fixed;
-    width: 100%;
-    top: 0px;
-    right: 0px;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: transparent;
-    padding: 28px 12%;
-    transition: all .50s ease;
-}
-.logo{
-    display: flex;
-    align-items: center;
-}
-.logo span{
-    color: var(--main-color);
-    font-size: 1.1rem;
-    font-weight: 600;
-}
-.logo i{
-    font-size: 23px;
-}
-.navbar{
-    display: flex;
-}
-.navbar a{
-    color: var(--text-color);
-    font-size: 1.1rem;
-    font-weight: 500;
-    padding: 5px 0;
-    margin: 0px 30px;
-    transition: all .50s ease;
-}
-.navbar a:hover{
-    color: var(--main-color);
-}
-.navbar a.active{
-    color: var(--main-color);
-}
-.main{
-    display: flex;
-    align-items: center;
-}
-.main a{
-    margin-right: 25px;
-    margin-left: 10px;
-    color: var(--text-color);
-    font-size: 1.1rem;
-    font-weight: 500;
-    transition: all .50s ease;
-}
-.user{
-    display: flex;
-    align-items: center;
-}
-.user i{
-    color: var(--main-color);
-    font-size: 20px;
-    margin-right: 7px;
-}
-.main a:hover{
-    color: var(--main-color);
-}
-#menu-icon{
-    font-size: 35px;
-    color: var(--text-color);
-    cursor: pointer;
-    z-index: 10001;
-    display: none;
-}
-
-
-@media (max-width: 1280px){
-    header{
-        padding: 14px 2%;
-        transition: .2s;
-    }
-    .navbar a{
-        padding: 5px 0; 
-        margin: 0px 20px;
-    }
-}
-
-@media (max-width: 1090px){
-    #menu-icon{
-        display: block;
-    }
-    .navbar{
-        position: absolute;
-        top: 100%;
-        right: -1000%;
-        width: 270px;
-        height: auto;
-        background: black;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        border-radius: 10px;
-        transition: all .50s ease;
-    }
-    .navbar a{
-        display: block;
-        margin: 9px 0;
-        padding: 0px 25px;
-        transition: all .50s ease;
-    }
-    .navbar a:hover{
-        color: var(--text-color);
-        transform: translateY(5px); 
-    }
-    .navbar a.active{
-        color: var(--text-color);
-    }
-    .navbar.open{
-        right: 2%;
-    }
-}
-      </style>
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
+    />
 </head>
 <body>
-	<header style="background-color: black;">
-        <a href="test1.html" class="logo"><span>TechMOTO<i class="ph-fill ph-motorcycle"></i></span></a>
+    <div class="container">
+        <header class="header">
+            <div class="logo">TechMOTO<i class="ph-fill ph-motorcycle"></i></div>
+            <a href="motor.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>Back to MotorCycle
+            </a>
+        </header>
+        
+        <main>
+            <div class="motorcycle-showcase">
+                <div class="bike-images">
+                    <div class="bike-image">
+                        <span class="image-label">Stock Version</span>
+                        <img src="https://i0.wp.com/cdn.pertamax7.com/wp-content/uploads/2023/08/Yamaha-XSR-155-Merah-Terbaru-2023-Custom.jpg?resize=1000%2C666&ssl=1" alt="Yamaha XSR-155">
+                    </div>
+                    <div class="bike-image" style="margin-top: 30px;">
+                        <span class="image-label">Modified Version</span>
+                        <img src="https://www.inibalikpapan.com/wp-content/uploads/2021/03/d00807e7-8b75-4494-ac1f-4417e6bfe39d.jpg" alt="Modified Yamaha XSR-155">
+                    </div>
+                </div>
+                
+                <div class="specs">
+                    <h2>Yamaha XSR-155</h2>
+                    
+                    <div class="spec-item">
+                        <span class="spec-name">Engine Type</span>
+                        <span class="spec-value">155cc Liquid-cooled, 4-stroke, SOHC, VVA</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Power</span>
+                        <span class="spec-value">19 HP @ 10,000 rpm</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Torque</span>
+                        <span class="spec-value">14,7 Nm @ 8,500 rpm</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Transmission</span>
+                        <span class="spec-value">6-speed</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Fuel System</span>
+                        <span class="spec-value">Fuel Injection</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Seat Height</span>
+                        <span class="spec-value">810 mm</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Weight</span>
+                        <span class="spec-value">134 kg</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Fuel Capacity</span>
+                        <span class="spec-value">10,4 L</span>
+                    </div>
+                    
+                    <div class="price">$2.277</div>
+                    
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-primary">
+                            <i class="fas fa-shopping-cart"></i> Buy Now
+                        </a>
+                        <a href="#" class="btn btn-outline">
+                            <i class="fas fa-bookmark"></i> Save for Later
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
 
-        <ul class="navbar">
-            <li><a href="#">Search <i class="ri-search-line"></i></a></li>
-            <li><a href="yamaha.html" class="active">Harley</a></li>
-        </ul>
+        <main>
+            <div class="motorcycle-showcase">
+                <div class="bike-images">
+                    <div class="bike-image">
+                        <span class="image-label">Stock Version</span>
+                        <img src="https://awsimages.detik.net.id/community/media/visual/2023/10/06/yamaha-mt-07.jpeg?w=600&q=90" alt="Yamaha MT-07">
+                    </div>
+                    <div class="bike-image" style="margin-top: 30px;">
+                        <span class="image-label">Modified Version</span>
+                        <img src="https://i0.wp.com/cdn.juraganwp.com/monkeymotoblog/wp-content/uploads/2018/11/11234451/yamaha-mt-07-hageman.jpg?resize=1250%2C834&ssl=1" alt="Modified Yamaha MT-07">
+                    </div>
+                </div>
+                
+                <div class="specs">
+                    <h2>Yamaha MT-07</h2>
+                    
+                    <div class="spec-item">
+                        <span class="spec-name">Engine Type</span>
+                        <span class="spec-value">689cc Liquid-cooled, 4-stroke, DOHC</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Power</span>
+                        <span class="spec-value">74 HP @ 9,000 rpm</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Torque</span>
+                        <span class="spec-value">68 Nm @ 6,500 rpm</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Transmission</span>
+                        <span class="spec-value">6-speed</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Fuel System</span>
+                        <span class="spec-value">Fuel Injection</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Seat Height</span>
+                        <span class="spec-value">805 mm</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Weight</span>
+                        <span class="spec-value">184 kg</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Fuel Capacity</span>
+                        <span class="spec-value">14 L</span>
+                    </div>
+                    
+                    <div class="price">$7,999</div>
+                    
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-primary">
+                            <i class="fas fa-shopping-cart"></i> Buy Now
+                        </a>
+                        <a href="#" class="btn btn-outline">
+                            <i class="fas fa-bookmark"></i> Save for Later
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
 
-        <div class="main">
-            <a href="#" class="user"><i class="ri-user-fill"></i> Contact</a>
-            <div class="bx bx-menu" id="menu-icon"></div>
-        </div>
-    </header>
+        <main>
+            <div class="motorcycle-showcase">
+                <div class="bike-images">
+                    <div class="bike-image">
+                        <span class="image-label">Stock Version</span>
+                        <img src="https://img.okezone.com/content/2010/09/22/53/374589/zaRif8VYSY.jpg" alt="Yamaha Scorpio Z New">
+                    </div>
+                    <div class="bike-image" style="margin-top: 30px;">
+                        <span class="image-label">Modified Version</span>
+                        <img src="https://imgx.gridoto.com/crop/165x49:819x446/700x465/filters:watermark(file/2017/gridoto/img/watermark.png,5,5,60)/photo/2021/06/23/yamahascorpio-scrambler-oriental-20210623050040.jpeg" alt="Modified Yamaha Scorpio Z New">
+                    </div>
+                </div>
+                
+                <div class="specs">
+                    <h2>Yamaha Scorpio Z New</h2>
+                    
+                    <div class="spec-item">
+                        <span class="spec-name">Engine Type</span>
+                        <span class="spec-value">225cc Air-cooled, 4-stroke, SOHC</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Power</span>
+                        <span class="spec-value">18.2 HP @ 8,000 rpm</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Torque</span>
+                        <span class="spec-value">17.5 Nm @ 6,500 rpm</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Transmission</span>
+                        <span class="spec-value">5-speed</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Fuel System</span>
+                        <span class="spec-value">Karburator Mikuni BS30</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Seat Height</span>
+                        <span class="spec-value">770 mm</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Weight</span>
+                        <span class="spec-value">142 kg</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Fuel Capacity</span>
+                        <span class="spec-value">13 L</span>
+                    </div>
+                    
+                    <div class="price">$1.477</div>
+                    
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-primary">
+                            <i class="fas fa-shopping-cart"></i> Buy Now
+                        </a>
+                        <a href="#" class="btn btn-outline">
+                            <i class="fas fa-bookmark"></i> Save for Later
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <main>
+            <div class="motorcycle-showcase">
+                <div class="bike-images">
+                    <div class="bike-image">
+                        <span class="image-label">Stock Version</span>
+                        <img src="https://static.wixstatic.com/media/4c022a_f26da6e3dd684778bc8e365260212a0b~mv2.jpg/v1/fill/w_980,h_735,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/4c022a_f26da6e3dd684778bc8e365260212a0b~mv2.jpg" alt="Yamaha MT-07">
+                    </div>
+                    <div class="bike-image" style="margin-top: 30px;">
+                        <span class="image-label">Modified Version</span>
+                        <img src="https://yamaha.aspacindo.com/wp-content/uploads/2024/11/Snapinsta.app_26869965_144728319658651_8665401810250366976_n_1080-1-1024x770.jpg" alt="Modified Yamaha XSR-155">
+                    </div>
+                </div>
+                
+                <div class="specs">
+                    <h2>Yamaha XSR-155</h2>
+                    
+                    <div class="spec-item">
+                        <span class="spec-name">Engine Type</span>
+                        <span class="spec-value">689cc Liquid-cooled, 4-stroke, DOHC</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Power</span>
+                        <span class="spec-value">74 HP @ 9,000 rpm</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Torque</span>
+                        <span class="spec-value">68 Nm @ 6,500 rpm</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Transmission</span>
+                        <span class="spec-value">6-speed</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Fuel System</span>
+                        <span class="spec-value">Fuel Injection</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Seat Height</span>
+                        <span class="spec-value">805 mm</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Weight</span>
+                        <span class="spec-value">184 kg</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Fuel Capacity</span>
+                        <span class="spec-value">14 L</span>
+                    </div>
+                    
+                    <div class="price">$7,999</div>
+                    
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-primary">
+                            <i class="fas fa-shopping-cart"></i> Buy Now
+                        </a>
+                        <a href="#" class="btn btn-outline">
+                            <i class="fas fa-bookmark"></i> Save for Later
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <main>
+            <div class="motorcycle-showcase">
+                <div class="bike-images">
+                    <div class="bike-image">
+                        <span class="image-label">Stock Version</span>
+                        <img src="https://static.wixstatic.com/media/4c022a_f26da6e3dd684778bc8e365260212a0b~mv2.jpg/v1/fill/w_980,h_735,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/4c022a_f26da6e3dd684778bc8e365260212a0b~mv2.jpg" alt="Yamaha MT-07">
+                    </div>
+                    <div class="bike-image" style="margin-top: 30px;">
+                        <span class="image-label">Modified Version</span>
+                        <img src="https://yamaha.aspacindo.com/wp-content/uploads/2024/11/Snapinsta.app_26869965_144728319658651_8665401810250366976_n_1080-1-1024x770.jpg" alt="Modified Yamaha XSR-155">
+                    </div>
+                </div>
+                
+                <div class="specs">
+                    <h2>Yamaha XSR-155</h2>
+                    
+                    <div class="spec-item">
+                        <span class="spec-name">Engine Type</span>
+                        <span class="spec-value">689cc Liquid-cooled, 4-stroke, DOHC</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Power</span>
+                        <span class="spec-value">74 HP @ 9,000 rpm</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Torque</span>
+                        <span class="spec-value">68 Nm @ 6,500 rpm</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Transmission</span>
+                        <span class="spec-value">6-speed</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Fuel System</span>
+                        <span class="spec-value">Fuel Injection</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Seat Height</span>
+                        <span class="spec-value">805 mm</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Weight</span>
+                        <span class="spec-value">184 kg</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-name">Fuel Capacity</span>
+                        <span class="spec-value">14 L</span>
+                    </div>
+                    
+                    <div class="price">$7,999</div>
+                    
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-primary">
+                            <i class="fas fa-shopping-cart"></i> Buy Now
+                        </a>
+                        <a href="#" class="btn btn-outline">
+                            <i class="fas fa-bookmark"></i> Save for Later
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
 
     <script type="text/javascript" src="script.js"></script>
 
-<fieldset style="padding-bottom: 350px; margin-top: 100px; margin-left: 20px; margin-right: 20px; border:none; height: auto;">
-    <div class="yamaha1">
-    	<img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/catalog-image/106/MTA-179026907/br-m036969-03599_-jawa-tengah-all-new-xsr-155-vva-yamaha-xsr-promo-lancar-langgeng-cash-kredit_full01-2e8da929.jpg" align="left" style="width: 400px; height: 320px; align-self: right;">
-    </div>
-</fieldset>
 </body>
 </html>
